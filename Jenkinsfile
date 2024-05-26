@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('build-docker-image') {
             steps {
-                build-docker-image()
+                build_docker_image()
             }
         }
     }
