@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    triggers { 
+        pollSCM('*/1 * * * *')
+    }
+    stages {
+        stage('build-docker-image') {
+            steps {
+                build-docker-image()
+            }
+        }
+    }
+}
+
+def build-docker-image(){
+    sh "ls"
+    echo "Building docker image.."
+    sh "docker build --no-cache -t jekaterina2021/api-tests:latest ."
+
+    echo "Pushing docker image to docker registry.."
+    sh "docker push jekaterina2021/api-tests:latest"
+}
