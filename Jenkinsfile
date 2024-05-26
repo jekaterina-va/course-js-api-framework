@@ -12,8 +12,7 @@ pipeline {
     }
 }
 
-def build-docker-image(){
-    sh "ls"
+def build_docker_image(){
     echo "Building docker image.."
     sh "docker build --no-cache -t jekaterina2021/api-tests:latest ."
 
